@@ -59,7 +59,16 @@ class Stepper {
 
     showStep() {
         [...this.stepperElement.getElementsByClassName("stepper__step")].forEach((e, i) => {
-            e.className = "stepper__step" + (i === this.#currentStep ? "" : " stepper--hide");
+            if (i === this.currentStep) {
+                e.className = "stepper__step stepper--show";
+                e.querySelector("input").focus();
+
+                this.stepperElement.querySelector(`.stepper__bullets .stepper__bullet:nth-of-type(${i + 1})`).className = "stepper__bullet stepper--active";
+            } else {
+                e.className = "stepper__step";
+
+                this.stepperElement.querySelector(`.stepper__bullets .stepper__bullet:nth-of-type(${i + 1})`).className = "stepper__bullet";
+            }
         });
     }
 }
