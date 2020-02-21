@@ -77,18 +77,19 @@ const stepper = new Stepper({
     id: "stepper",
     steps: [
         {
-            title: "Step1",
-            description: "Just a description",
-            fields: [
-                { type: "text", placeholder: "Your Email" }
+            inputs: [
+                { type: "text", placeholder: "username" }
             ]
         },
         {
-            title: "Step2",
-            description: "Just a description 2",
-            fields: [
-                { type: "password", placeholder: "Your Password" },
-                { type: "password", placeholder: "Repeat Password" }
+            inputs: [
+                { type: "email", placeholder: "email" }
+            ]
+        },
+        {
+            inputs: [
+                { type: "password", placeholder: "password" },
+                { type: "password", placeholder: "confirm password" }
             ]
         }
     ]
