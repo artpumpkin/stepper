@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+* {
+  font-family: "Montserrat";
+}
+
+:root {
+  --stepper-bg: white;
+  --stepper-box-shadow: rgba(195, 69, 104, 0.2);
+}
+
 body {
-    background: red;
-    margin: 0;
+  background: white;
+  margin: 0;
+  padding-top: 350px;
 }
 
 .stepper {
