@@ -27,19 +27,21 @@ class Stepper {
             }
         });
     }
+
     addSteps(steps) {
-        steps.forEach(({ title, description, fields }) => {
+        steps.forEach(({ inputs }) => {
             const template = `<div class="stepper__step">
-                <div class="stepper__title">${title}<div>
-                <div class="stepper__description">${description}<div>
-                <div class="fields">
-                    ${ fields
-                    .map(({
-                        type,
-                        placeholder
-                    }) => `<input type="${type}" placeholder="${placeholder}"/>`)
-                    .join``}
-                </div>
+                ${ inputs.map(input => `<div class="stepper__field">
+                <input ${ Object
+                    .entries(input)
+                    .map(([key, value]) => `${key}="${value}"`)
+                    .join` `
+                } />
+                <span class="stepper__placeholder">${input.placeholder}</span>
+                <span class="stepper__bottom-border"></span>
+                </div>`)
+                    .join``
+                }
             </div>`;
             this.stepperElement.innerHTML += template;
         });
