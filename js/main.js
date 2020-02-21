@@ -5,6 +5,9 @@ class Stepper {
         this.numberOfSteps = steps.length;
         this.stepperElement = document.getElementById(id);
         this.stepperElement.className = "stepper";
+        this.stepperElement.innerHTML += `<div class="stepper__bullets">
+          ${`<div class="stepper__bullet"></div>`.repeat(steps.length)}  
+        </div>`;
         this.addSteps(steps);
     }
 
