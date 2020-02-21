@@ -9,8 +9,24 @@ class Stepper {
           ${`<div class="stepper__bullet"></div>`.repeat(steps.length)}  
         </div>`;
         this.addSteps(steps);
+        this.attachEvents();
     }
 
+    attachEvents() {
+        this.stepperElement.querySelectorAll(".stepper__field input").forEach(field => {
+            field.onkeyup = ({ key }) => {
+                if (key === "Enter" && this.currentStep < this.numberOfSteps - 1) {
+                    this.currentStep++;
+                }
+            }
+        });
+
+        this.stepperElement.querySelectorAll(".stepper__bullets .stepper__bullet").forEach((bullet, i) => {
+            bullet.onclick = () => {
+                this.currentStep = i;
+            }
+        });
+    }
     addSteps(steps) {
         steps.forEach(({ title, description, fields }) => {
             const template = `<div class="stepper__step">
