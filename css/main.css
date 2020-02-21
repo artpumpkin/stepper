@@ -1,0 +1,32 @@
+body {
+    background: red;
+    margin: 0;
+}
+
+.stepper {
+    background: green;
+}
+
+.stepper__step {
+    background: yellow;
+}
+
+.stepper__title {
+    background: cyan;
+}
+
+.stepper__description {
+    background: brown;
+}
+
+.stepper__fields {
+    background: blue;
+}
+
+.stepper__field {
+    background: purple;
+}
+
+.stepper--hide {
+    display: none;
+}
