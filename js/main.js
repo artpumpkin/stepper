@@ -2,6 +2,7 @@ class Stepper {
     #currentStep = 0;
     
     constructor({ id, steps }) {
+        this.numberOfSteps = steps.length;
         this.stepperElement = document.getElementById(id);
         this.stepperElement.className = "stepper";
         this.addSteps(steps);
