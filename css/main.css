@@ -5,29 +5,134 @@ body {
 }
 
 .stepper {
-    background: green;
+  position: relative;
+  width: 340px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .stepper__step {
-    background: yellow;
+  position: absolute;
+  background: var(--stepper-bg);
+  box-shadow: 0px 0px 40px var(--stepper-box-shadow);
+  border-radius: 20px;
+  padding: 30px 30px 22px;
+  width: 100%;
+  box-sizing: border-box;
+  left: 100px;
+  opacity: 0;
+  transition: all 0.75s ease;
+  transition-property: left, opacity;
+  z-index: -1000;
 }
 
-.stepper__title {
-    background: cyan;
+.stepper__step.stepper--show {
+  left: 0;
+  opacity: 1;
+  z-index: initial;
 }
 
-.stepper__description {
-    background: brown;
+.stepper__bullets {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.stepper__fields {
-    background: blue;
+.stepper__bullet {
+  background: linear-gradient(270deg, #efb441 0%, #c34568 100%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
+.stepper__bullet.stepper--active {
+  opacity: 1;
 }
 
 .stepper__field {
-    background: purple;
+  width: 100%;
+  position: relative;
 }
 
-.stepper--hide {
-    display: none;
+.stepper__field + .stepper__field {
+  margin-top: 30px;
+}
+
+.stepper__field > input ~ .stepper__bottom-border::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(270deg, #efb441 0%, #c34568 100%);
+  opacity: 0.5;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+}
+
+.stepper__field > input ~ .stepper__bottom-border::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: linear-gradient(270deg, #efb441 0%, #c34568 100%);
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.25s ease;
+  transition-property: width;
+}
+
+.stepper__field
+  > input:not(:placeholder-shown)
+  ~ .stepper__bottom-border::after,
+.stepper__field > input:focus ~ .stepper__bottom-border::after {
+  width: 100%;
+}
+
+.stepper__field > input + .stepper__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: linear-gradient(270deg, #efb441 0%, #c34568 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.5;
+  transition: all 0.25s ease;
+  transition-property: opacity, top, left, transform;
+  pointer-events: none;
+}
+
+.stepper__field > input:not(:placeholder-shown) + .stepper__placeholder,
+.stepper__field > input:focus + .stepper__placeholder {
+  top: -10px;
+  left: 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stepper__field > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #c34568;
+  box-sizing: border-box;
+}
+
+.stepper__field > input::placeholder {
+  visibility: hidden;
 }
