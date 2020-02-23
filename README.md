@@ -4,3 +4,7 @@ A coding challenge about building a stepper from the ground up, with only HTML, 
 ---
 
 ![](https://i.imgur.com/yUYD6eG.gif)
+
+---
+
+> You can view the final result [here](https://imsalahdev.github.io/stepper/).
