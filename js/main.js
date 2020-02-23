@@ -66,6 +66,8 @@ class Stepper {
 						}
 
 						if (index === 1) {
+							input.onkeydown = () => input.setCustomValidity("");
+
 							if (input.value !== "" && input.value !== password) {
 								input.setCustomValidity("The password and its confirmation do not match.");
 								input.reportValidity();
