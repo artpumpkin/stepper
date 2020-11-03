@@ -7,4 +7,4 @@ A coding challenge about building a stepper from the ground up, with only HTML, 
 
 ---
 
-> You can view the final result [here](https://imsalahdev.github.io/stepper/).
+> You can view the final result [here](https://artpumpkin.github.io/stepper/).
